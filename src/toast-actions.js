@@ -15,21 +15,21 @@ export class ToastActions {
 
   async handleEvent(eventType, event) {
     if (eventType == "click") {
-      let closeButton = event.target.closest(".toast-close");
+      let closeButton = event.target.closest(".t-close");
       if (closeButton) {
         event.preventDefault();
         event.stopPropagation();
-        this.close(closeButton.closest(".toast-container"));
+        this.close(closeButton.closest(".t-container"));
       }
     }
   }
 
   _getInnerContainers() {
-    return this.container.querySelectorAll(".toast-container");
+    return this.container.querySelectorAll(".t-container");
   }
 
   _animateRemoveContainer(toastContainer) {
-    toastContainer.style.animation = "ta-fade-out .4s";
+    toastContainer.style.animation = "t-fade-out .4s";
     toastContainer.onanimationend = function () {
       toastContainer.remove();
     };
@@ -54,10 +54,10 @@ export class ToastActions {
   _show(html, timeout) {
     const self = this,
       div = document.createElement("div");
-    div.classList = "toast-container";
+    div.classList = "t-container";
     div.style.display = "block";
     div.innerHTML = html;
-    div.style.animation = "ta-fade-in .4s";
+    div.style.animation = "t-fade-in .4s";
     div.addEventListener("click", async function (event) {
       await self.handleEvent("click", event);
     });
@@ -66,19 +66,19 @@ export class ToastActions {
   }
 
   success(title, message, { timeout = 3000, html = false } = {}) {
-    this.show("success ", title, message, { timeout, html });
+    this.show("t-status--success ", title, message, { timeout, html });
   }
 
   info(title, message, { timeout = 3000, html = false } = {}) {
-    this.show("info", title, message, { timeout, html });
+    this.show("t-status--info", title, message, { timeout, html });
   }
 
   warning(title, message, { timeout = 3000, html = false } = {}) {
-    this.show("warning", title, message, { timeout, html });
+    this.show("t-status--warning", title, message, { timeout, html });
   }
 
   error(title, message, { timeout = 3000, html = false } = {}) {
-    this.show("error", title, message, { timeout, html });
+    this.show("t-status--error", title, message, { timeout, html });
   }
 
   show(type, title, message, { timeout = 3000, html = false } = {}) {
@@ -93,15 +93,17 @@ export class ToastActions {
 
   getTemplate() {
     const template = `
-        <div class="toast-content">
-          <div class="toast-header">
-            <button class="toast-close">&#x2715</button>
-            <div class="status {{ type }}"></div>
-            <div class="toast-title">
-              {{ title }}
+        <div>
+          <div class="t-header">
+            <div class="t-header__main">
+              <div class="t-status {{ type }}"></div>
+              <div>
+                {{ title }}
+              </div>
             </div>
+            <button class="t-close">&#x2715</button>
           </div>
-          <div class="toast-message">
+          <div class="t-message">
             {% if html %}{{ message|safe }}{% else %}{{ message }}{% endif %}
           </div>
         </div>

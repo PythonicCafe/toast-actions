@@ -89,12 +89,20 @@ body {
   text-align: center;
 }
 
-.theme-toggle > span {
+.theme-toggle > button {
   transition: opacity 0.3s ease-in-out;
   cursor: pointer;
-  line-height: none;
+  line-height: 0rem;
+  padding: 6px;
+  background-color: transparent;
+  border: none;
+  color: var(--color-text);
+  border-radius: var(--radius);
+  transition-duration: 250ms;
+  transition-property: background-color, border-color, color, fill, stroke;
 }
 
-.theme-toggle > span:hover {
-  opacity: 60%;
+.theme-toggle > button:hover {
+  background-color: var(--color-bg-hover-close);
+  color: var(--color-hover);
 }

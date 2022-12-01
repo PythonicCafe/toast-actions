@@ -64,6 +64,7 @@ async function runTestSecondary() {
     { timeout: 5000 }
   );
 }
+
 async function main() {
   const statuslog = document.createElement("div");
   const transparentEffect = document.createElement("div");
@@ -76,7 +77,7 @@ async function main() {
 
   window.toastNumber = 0;
   log("Creating instance");
-  window.toast = new ToastActions(".toast-actions");
+  window.toast = new ToastActions(".t-actions");
   await runTest();
 }
 
