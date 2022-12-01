@@ -1,10 +1,10 @@
 describe("Simple select interactions", () => {
   test("Toast is being showed after page is loaded with correct title", async () => {
-    await page.waitForSelector(".toast-title");
+    await page.waitForSelector(".t-header__main");
 
     // Check if toast is bewing showed by getting toast title
     const results = await page.evaluate(
-      () => document.querySelector('.toast-title').innerText
+      () => document.querySelector('.t-header__main').innerText
     );
 
     // Check title
@@ -12,11 +12,11 @@ describe("Simple select interactions", () => {
   });
 
   test("Toast is being showed with correct text", async () => {
-    await page.waitForSelector(".toast-title");
+    await page.waitForSelector(".t-message");
 
     // Check if toast is bewing showed by getting toast title
     const results = await page.evaluate(
-      () => document.querySelector('.toast-message').innerText
+      () => document.querySelector('.t-message').innerText
     );
 
     // Check title
@@ -24,8 +24,8 @@ describe("Simple select interactions", () => {
   });
 
   test("Close Toast", async () => {
-    await page.waitForSelector(".toast-close");
-    await page.click(".toast-close");
+    await page.waitForSelector(".t-close");
+    await page.click(".t-close");
     // Wait until animation end and check if element is removed from DOM
     await page.waitForFunction(() => document.querySelector(".toast-container") === null);
   }, 6000);
