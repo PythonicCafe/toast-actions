@@ -1,6 +1,6 @@
 {
   "name": "toast-actions",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "description": "Simple & customizable toast alerts, written in vanilla JS",
   "source": "src/index.js",
