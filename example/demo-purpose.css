@@ -65,7 +65,7 @@ body {
 }
 
 .navigation {
-  display: flex; 
+  display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
   justify-content: center;
@@ -73,20 +73,15 @@ body {
 
 }
 
-@media screen and (max-width: 576px) { 
+@media screen and (max-width: 576px) {
   .navigation {
-    flex-direction: column; 
+    flex-direction: column;
     padding: 1rem;
   }
 }
 
 .outside-container {
   padding: 0rem 1rem;
-}
-
-.theme-toggle {
-  margin: 0.20rem;
-  text-align: center;
 }
 
 .theme-toggle > button {
