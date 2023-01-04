@@ -2,10 +2,6 @@
 
 Simple & customizable multi/single-toast picker, written in vanilla JS
 
-## Demo
-
-[https://marcmatias.github.io/toast-actions](https://marcmatias.github.io/toast-actions)
-
 ## Installation
 
 ```bash
